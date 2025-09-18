@@ -1,0 +1,155 @@
+.carouselContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  width: 100%;
+  min-height: 420px;
+  background: #fff;
+  border-radius: 2.5rem;
+  padding: 2.5rem 2rem;
+  position: relative;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+.left3d {
+  flex: 1 1 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  min-width: 320px;
+  max-width: 480px;
+}
+.threeWrapper {
+  width: 100%;
+  aspect-ratio: 1/1;
+  height: 500px;
+  background: #f8f8f8;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 16px #0001;
+}
+.btn360 {
+  margin-top: 1.2rem;
+  background: #fff;
+  border: 1.5px solid #bbb;
+  border-radius: 1.5rem;
+  padding: 0.4rem 1.2rem;
+  font-size: 1rem;
+  color: #232323;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #0001;
+  transition: border 0.2s;
+}
+
+.icon360 {
+  font-size: 1.2rem;
+}
+.mySwiper :global(.swiper-button-next),
+.mySwiper :global(.swiper-button-prev) {
+  border-radius: 50%;
+  background: #3B3B3B;
+  cursor: pointer;
+  padding: 10px;
+  width: 70px;
+  height: 70px;
+   z-index: 30;
+}
+
+/* Botón izquierdo: fuera del carrusel, a la izquierda */
+.mySwiper :global(.swiper-button-prev) {
+  left: 60px; /* Ajusta este valor para que salga más o menos */
+}
+
+/* Botón derecho: fuera del carrusel, a la derecha */
+.mySwiper :global(.swiper-button-next) {
+  right: 60px; /* Ajusta este valor para que salga más o menos */
+}
+
+.rightText {
+  flex: 1 1 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.5rem;
+  min-width: 320px;
+  max-width: 520px;
+  padding-left: 2rem;
+}
+.subtitle {
+  color: #888;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+.title {
+  color: #ab2731;
+  font-size: 2.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+}
+.description {
+  color: #444;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+.ctaBtn {
+  background: #232323;
+  color: #fff;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+.ctaBtn:hover {
+  background: #ab2731;
+}
+.ctaIcon {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+@media (max-width: 900px) {
+  .carouselContainer {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 0.5rem;
+  }
+  .left3d, .rightText {
+    max-width: 100%;
+    min-width: 0;
+    padding-left: 0;
+  }
+  .threeWrapper {
+    min-height: 220px;
+  }
+}
+@media (max-width: 600px) {
+  .carouselContainer {
+    border-radius: 1.2rem;
+    padding: 0.5rem 0.2rem;
+  }
+  .threeWrapper {
+    border-radius: 1rem;
+    min-height: 140px;
+  }
+  .rightText {
+    padding-left: 0;
+    gap: 1rem;
+  }
+  .title {
+    font-size: 1.3rem;
+  }
+}

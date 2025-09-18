@@ -1,0 +1,184 @@
+.container {
+  display: flex;
+  gap: 2.5rem;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex: 1 1 350px;
+  width: 50%;
+}
+
+.right {
+  flex: 2 1 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2rem;
+  width: 50%;
+}
+
+.mainImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9; /* o el ratio que prefieras */
+  min-height: 200px;   /* opcional, para evitar colapso */
+}
+
+.servicioBtn {
+  display: flex;
+  align-items: center;
+  background: #ededed;
+  border: none;
+  border-radius: 2rem;
+  padding: 1.2rem 2.5rem 1.2rem 1.2rem;
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: #444;
+  cursor: pointer;
+  gap: 1.5rem;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+  outline: none;
+  width: 100%;
+}
+.servicioBtn:hover,
+.servicioBtn.selected {
+  background: #fff4f4;
+  color: #ab2731;
+}
+.servicioBtn.selected {
+  background: #ededed;
+  color: #ab2731;
+}
+.servicioBtn.dark {
+  background: #232323;
+  color: #fff;
+}
+.servicioBtn.dark .iconBox {
+  background: #ab2731;
+}
+.iconBox {
+  background: #ab2731;
+  border-radius: 1rem;
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.2rem;
+}
+.icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: contain;
+}
+.label {
+  flex: 1;
+  text-align: left;
+}
+.arrow {
+  font-size: 2.2rem;
+  margin-left: 1.2rem;
+  color: #ab2731;
+  transition: color 0.2s;
+}
+.servicioBtn.dark .arrow {
+  color: #fff;
+}
+
+.mainImage {
+  border-radius: 2rem;
+  object-fit: cover;
+  width: 700px;
+  height: 400px;
+  box-shadow: 0 2px 16px #0001;
+}
+.ctaBox {
+  background: #fff;
+  border-radius: 2rem;
+  box-shadow: 0px 0px 9px 0px rgba(112, 112, 112, 0.75);
+  padding: 1.2rem 2rem 2rem 2rem;
+  min-width: 420px;
+  margin-top: -4.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: flex-start;
+  position: absolute;
+  bottom: 60px;
+  right: -60px;
+  
+}
+.ctaText {
+  font-size: 1.2rem;
+  color: #444;
+  margin-bottom: 0.7rem;
+}
+.ctaBtn {
+  background: #232323;
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  padding: 1.1rem 2.2rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.ctaBtn:hover {
+  background: #ab2731;
+}
+.ctaBtnIcon {
+  background: #ab2731;
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1.2rem;
+  color: #fff;
+  font-size: 1.3rem;
+}
+@media (max-width: 1100px) {
+  .container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .right {
+    align-items: stretch;
+  }
+  .mainImage {
+    width: 100%;
+    height: 300px;
+  }
+  .ctaBox {
+    min-width: unset;
+    width: 100%;
+  }
+}
+@media (max-width: 700px) {
+  .container {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .mainImage {
+    width: 100%;
+    height: 180px;
+  }
+  .ctaBox {
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+  .left {
+    max-width: 100%;
+  }
+}

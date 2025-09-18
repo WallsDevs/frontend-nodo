@@ -1,0 +1,8 @@
+.cardServicios {
+  border-radius: 6rem;
+  background: #fff;
+  box-shadow:
+    0 8px 24px -8px rgba(112, 112, 112, 0.75), /* sombra inferior */
+    0 -8px 24px -8px rgba(112, 112, 112, 0.75); /* sombra superior */
+  padding: 5em 5vw 7rem 5vw;
+}

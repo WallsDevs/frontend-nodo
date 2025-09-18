@@ -1,0 +1,130 @@
+/* Wrapper del carrusel */
+.carouselWrapper {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+ overflow: visible; /* <-- Asegúrate de esto */
+  position: relative;
+}
+
+/* Contenedor de cada slide */
+.slideContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.5em;
+  overflow: hidden;
+}
+
+/* Imagen de fondo */
+.slideImage {
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Overlay oscuro */
+.slideOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+  linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.01) 100%),
+  radial-gradient(ellipse at center, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0.01) 100%);
+  z-index: 2;
+}
+
+/* Contenido del slide */
+.slideContent {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 5vw 4vw 5vw;
+  color: #fff;
+}
+
+.slideTitle {
+  font-size: 3vw;
+  font-weight: 500;
+  margin-bottom: 15px;
+  line-height: 1.1;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+.slideText {
+  max-width: 700px;
+  font-size: 1.1vw;
+  margin-bottom: 2em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+/* Swiper pagination bullets custom styles */
+.mySwiper :global(.swiper-pagination) {
+  bottom: 60px !important;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 60px;
+  position: absolute;
+  z-index: 20;
+}
+
+.mySwiper :global(.swiper-pagination-bullet) {
+  width: 20px;      /* Tamaño del bullet */
+  height: 20px;     /* Tamaño del bullet */
+  background: #636466;
+  opacity: 0.5;
+  margin: 0 6px !important;
+  border-radius: 50%;
+  transition: background 0.2s, opacity 0.2s;
+
+}
+
+.mySwiper :global(.swiper-pagination-bullet-active) {
+  background: #ffffff;
+  opacity: 1;
+  border-color: #ffffff;
+  width: 20px;      /* Tamaño del bullet */
+  height: 20px;     /* Tamaño del bullet */
+}
+
+.mySwiper {
+  width: 100%;
+  height: 80vh;
+  overflow: visible;
+  position: relative;
+}
+
+
+/* Custom navigation buttons */
+
+.mySwiper :global(.swiper-button-next),
+.mySwiper :global(.swiper-button-prev) {
+  border-radius: 50%;
+  background: #3B3B3B;
+  cursor: pointer;
+  padding: 10px;
+  width: 70px;
+  height: 70px;
+   z-index: 30;
+}
+
+/* Botón izquierdo: fuera del carrusel, a la izquierda */
+.mySwiper :global(.swiper-button-prev) {
+  left: -40px; /* Ajusta este valor para que salga más o menos */
+}
+
+/* Botón derecho: fuera del carrusel, a la derecha */
+.mySwiper :global(.swiper-button-next) {
+  right: -40px; /* Ajusta este valor para que salga más o menos */
+}
+
+
+
