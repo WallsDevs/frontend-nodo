@@ -1,5 +1,6 @@
 "use client";
-import React, { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import React from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -13,6 +14,7 @@ import Image from "next/image";
 import { RedButtonWithIcon } from "../CustomButtons";
 
 export default function Carousel() {
+  const router = useRouter();
   const slides = [
     {
       image: "/image1.jpg",
@@ -63,7 +65,9 @@ export default function Carousel() {
               <div className={styles.slideContent}>
                 <h2 className={styles.slideTitle}>{slide.title}</h2>
                 <p className={styles.slideText}>{slide.content}</p>
-                <RedButtonWithIcon>Ver portafolio</RedButtonWithIcon>
+                <RedButtonWithIcon onClick={() => router.push("/portafolio")}>
+                  Ver portafolio
+                </RedButtonWithIcon>
               </div>
             </div>
           </SwiperSlide>

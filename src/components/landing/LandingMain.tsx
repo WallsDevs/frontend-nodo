@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { Typography } from "antd";
 import Footer from "@/components/footer/Footer";
 import FooterCta from "@/components/footer/FooterCta";
@@ -14,6 +15,7 @@ import TeamCarousel from "./TeamCarousel";
 import styles from "./LandingMain.module.css";
 
 export default function LandingMain() {
+  const router = useRouter();
   return (
     <>
       <Menu />
@@ -27,7 +29,7 @@ export default function LandingMain() {
           highlightLast={1}
           buttonType="redOutlineBlack"
           buttonText="Mira como lo hacemos"
-          onButtonClick={() => alert("RedOutlineBlackButton clicked!")}
+          onButtonClick={() => router.push("/portafolio")}
         />
 
         <ServiciosSelector />
@@ -37,7 +39,7 @@ export default function LandingMain() {
           text="Proyectos Destacados"
           buttonType="redIcon"
           buttonText="Ver portafolio"
-          onButtonClick={() => alert("RedButtonWithIcon clicked!")}
+          onButtonClick={() => router.push("/portafolio")}
         />
         <RenderCarousel />
       </div>
@@ -50,7 +52,6 @@ export default function LandingMain() {
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl
-            {/* Footer ahora está en el layout público */}
             turpis egestas.
           </Typography.Paragraph>
         </div>
