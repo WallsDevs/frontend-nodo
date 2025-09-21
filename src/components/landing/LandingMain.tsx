@@ -16,8 +16,8 @@ import styles from "./LandingMain.module.css";
 export default function LandingMain() {
   return (
     <>
+      <Menu />
       <div className="px-20">
-        <Menu />
         <Carousel />
         <BarStats />
       </div>
