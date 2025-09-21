@@ -1,7 +1,7 @@
 "use client";
 import { Typography } from "antd";
-import Footer from "@/components/landing/Footer";
-import FooterCta from "@/components/landing/FooterCta";
+import Footer from "@/components/footer/Footer";
+import FooterCta from "@/components/footer/FooterCta";
 import TestimonialsCarousel from "@/components/landing/TestimonialsCarousel";
 import Menu from "../menu";
 import SectionTitle from "../SectionTitle";
@@ -42,7 +42,7 @@ export default function LandingMain() {
         <RenderCarousel />
       </div>
       {/* Carrusel de equipo */}
-      <div className="mt-20 mb-20">
+      <div className="mt-20 mb-20" id="quienes-somos">
         <SectionTitle text="Quiénes Somos" alignRight={true} />
         <div className={styles.quienesSomosRight}>
           <Typography.Paragraph

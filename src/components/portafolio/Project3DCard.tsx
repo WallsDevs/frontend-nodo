@@ -25,6 +25,7 @@ export interface Project3DCardProps {
   icon?: string;
   model: string;
   bgGray?: boolean;
+  flip?: boolean;
 }
 
 export default function Project3DCard({
@@ -35,6 +36,7 @@ export default function Project3DCard({
   icon,
   model,
   bgGray = false,
+  flip = false,
 }: Project3DCardProps) {
   return (
     <div
@@ -45,32 +47,62 @@ export default function Project3DCard({
               background: "#EFEFEF",
               borderRadius: 24,
               border: "1px solid #E0E0E0",
+              paddingBottom: 60,
             }
           : undefined
       }
     >
-      <div className={styles.left3d}>
-        <button className={styles.btn360} type="button">
-          <span className={styles.icon360}>⟳</span> Imagen 360°
-        </button>
-        <div className={styles.threeWrapper}>
-          <Canvas
-            camera={{ position: [2, 2, 4], fov: 40 }}
-            style={{ background: "#fff" }}
-          >
-            <ambientLight intensity={0.7} />
-            <Stage environment={null} intensity={0.8}>
-              <HouseModel model={model} />
-            </Stage>
-            <OrbitControls enablePan={false} enableZoom={false} />
-          </Canvas>
-        </div>
-      </div>
-      <div className={styles.rightText}>
-        <div className={styles.subtitle}>{subtitle}</div>
-        <div className={styles.title}>{title}</div>
-        <div className={styles.description}>{description}</div>
-      </div>
+      {flip ? (
+        <>
+          <div className={styles.rightText}>
+            <div className={styles.subtitle}>{subtitle}</div>
+            <div className={styles.title}>{title}</div>
+            <div className={styles.description}>{description}</div>
+          </div>
+          <div className={styles.left3d}>
+            <button className={styles.btn360} type="button">
+              <span className={styles.icon360}>⟳</span> Imagen 360°
+            </button>
+            <div className={styles.threeWrapper}>
+              <Canvas
+                camera={{ position: [2, 2, 4], fov: 40 }}
+                style={{ background: "#fff" }}
+              >
+                <ambientLight intensity={0.7} />
+                <Stage environment={null} intensity={0.8}>
+                  <HouseModel model={model} />
+                </Stage>
+                <OrbitControls enablePan={false} enableZoom={false} />
+              </Canvas>
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className={styles.left3d}>
+            <button className={styles.btn360} type="button">
+              <span className={styles.icon360}>⟳</span> Imagen 360°
+            </button>
+            <div className={styles.threeWrapper}>
+              <Canvas
+                camera={{ position: [2, 2, 4], fov: 40 }}
+                style={{ background: "#fff" }}
+              >
+                <ambientLight intensity={0.7} />
+                <Stage environment={null} intensity={0.8}>
+                  <HouseModel model={model} />
+                </Stage>
+                <OrbitControls enablePan={false} enableZoom={false} />
+              </Canvas>
+            </div>
+          </div>
+          <div className={styles.rightText}>
+            <div className={styles.subtitle}>{subtitle}</div>
+            <div className={styles.title}>{title}</div>
+            <div className={styles.description}>{description}</div>
+          </div>
+        </>
+      )}
     </div>
   );
 }

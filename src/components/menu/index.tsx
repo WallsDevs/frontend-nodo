@@ -1,39 +1,106 @@
+"use client";
+
 import Image from "next/image";
 import { RedButton } from "../CustomButtons";
 import styles from "./Menu.module.css";
+import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import React, { useState } from "react";
 
 export default function Menu() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  // Determinar activo
+  const isHome = pathname === "/" || pathname === "/#quienes-somos";
+  const isPortafolio = pathname.startsWith("/portafolio");
+  const isCursos = pathname.startsWith("/cursos");
+  const isQuienes = pathname === "/#quienes-somos";
+
+  const handleNav = (cb: () => void) => {
+    setOpen(false);
+    cb();
+  };
+
   return (
     <div className="px-20">
       <nav className={styles.menuContainer}>
         <div className={styles.menuContent}>
-          <div className={styles.logoSection}>
+          <div
+            className={styles.logoSection}
+            onClick={() => handleNav(() => router.push("/"))}
+          >
             <Image
               src="/logo.svg"
               alt="Nodo Conceptual"
               width={220}
               height={55}
               priority
+              style={{ cursor: "pointer" }}
             />
           </div>
-          <ul className={styles.menuLinks}>
+          <button
+            className={styles.hamburger}
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Abrir menú"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+          <ul className={styles.menuLinks + (open ? " " + styles.open : "")}>
             <li>
-              <a href="/" className={styles.active}>
+              <button
+                type="button"
+                className={isHome && !isQuienes ? styles.active : undefined}
+                onClick={() => handleNav(() => router.push("/"))}
+              >
                 Inicio
-              </a>
+              </button>
             </li>
             <li>
-              <a href="/portafolio">Portafolio</a>
+              <button
+                type="button"
+                className={isPortafolio ? styles.active : undefined}
+                onClick={() => handleNav(() => router.push("/portafolio"))}
+              >
+                Portafolio
+              </button>
             </li>
             <li>
-              <a href="/quienes-somos">Quiénes Somos</a>
+              <button
+                type="button"
+                className={isQuienes ? styles.active : undefined}
+                onClick={() =>
+                  handleNav(() => {
+                    if (pathname === "/") {
+                      const section = document.getElementById("quienes-somos");
+                      if (section) {
+                        section.scrollIntoView({ behavior: "smooth" });
+                      }
+                    } else {
+                      router.push("/#quienes-somos");
+                    }
+                  })
+                }
+              >
+                Quiénes Somos
+              </button>
             </li>
             <li>
-              <a href="/cursos">Cursos y Formaciones</a>
+              <button
+                type="button"
+                className={isCursos ? styles.active : undefined}
+                onClick={() => handleNav(() => router.push("/cursos"))}
+              >
+                Cursos y Formaciones
+              </button>
             </li>
           </ul>
           <div className={styles.buttonSection}>
-            <RedButton style={{ padding: "0 60px" }}>Contáctanos</RedButton>
+            <RedButton style={{ padding: "0 60px", cursor: "pointer" }}>
+              Contáctanos
+            </RedButton>
           </div>
         </div>
       </nav>

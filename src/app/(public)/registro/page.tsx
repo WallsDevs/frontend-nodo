@@ -1,3 +1,4 @@
+"use client";
 export default function RegistroPage() {
   return (
     <main className="p-8">

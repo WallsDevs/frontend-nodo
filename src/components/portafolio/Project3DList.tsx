@@ -15,7 +15,12 @@ export default function Project3DList({
     return (
       <div style={{ display: "flex", flexDirection: "column", gap: 40 }}>
         {items.map((item, idx) => (
-          <Project3DCard key={item.model + idx} {...item} bgGray={bgGray} />
+          <Project3DCard
+            key={item.model + idx}
+            {...item}
+            bgGray={bgGray}
+            flip={idx % 2 === 1}
+          />
         ))}
       </div>
     );
