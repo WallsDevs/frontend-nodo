@@ -6,8 +6,14 @@ import { RedButton } from "@/components/CustomButtons";
 import Image from "next/image";
 import Link from "next/link";
 
+interface RegistroFormData {
+  email: string;
+  nombre: string;
+  password: string;
+}
+
 interface RegistroFormProps {
-  onSubmit: (data: any) => void;
+  onSubmit: (data: RegistroFormData) => void;
   loading?: boolean;
   error?: string;
 }
@@ -21,7 +27,7 @@ const RegistroForm: React.FC<RegistroFormProps> = ({
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<RegistroFormData>();
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>

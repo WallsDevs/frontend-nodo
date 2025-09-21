@@ -6,8 +6,13 @@ import { RedButton } from "./CustomButtons";
 import Image from "next/image";
 import Link from "next/link";
 
+interface LoginFormData {
+  email: string;
+  password: string;
+}
+
 interface LoginFormProps {
-  onSubmit: (data: any) => void;
+  onSubmit: (data: LoginFormData) => void;
   loading?: boolean;
   error?: string;
 }
@@ -17,7 +22,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, loading, error }) => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<LoginFormData>();
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>

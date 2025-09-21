@@ -2,13 +2,12 @@
 import React, { useState } from "react";
 import LoginForm from "../../../components/LoginForm";
 import styles from "./loginPage.module.css";
-import Image from "next/image";
 
 export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleLogin = async (data: any) => {
+  const handleLogin = async () => {
     setLoading(true);
     setError("");
     // Aquí iría la lógica real de login (API call)

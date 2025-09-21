@@ -1,13 +1,19 @@
 "use client";
 import React, { useState } from "react";
 import RegistroForm from "./RegistroForm";
+
+interface RegistroFormData {
+  email: string;
+  nombre: string;
+  password: string;
+}
 import styles from "../login/loginPage.module.css";
 
 export default function RegistroPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleRegistro = async (data: any) => {
+  const handleRegistro = async (data: RegistroFormData) => {
     setLoading(true);
     setError("");
     // Aquí iría la lógica real de registro (API call)
