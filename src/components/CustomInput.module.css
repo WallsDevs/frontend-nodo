@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 6px;
   margin-bottom: 18px;
+  width: 100%;
 }
 
 .label {
@@ -19,6 +20,8 @@
   border: 1px solid #e5e5e5;
   background: #fafbfc;
   transition: border 0.2s;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .input:focus, .input-focused {

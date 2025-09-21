@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { useRouter } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -73,6 +74,7 @@ const courses: CourseCardProps[] = [
 ];
 
 export default function CoursesCarousel() {
+  const router = useRouter();
   return (
     <div className="relative">
       <div className={styles.carouselWrapper}>
@@ -113,7 +115,11 @@ export default function CoursesCarousel() {
           </button>
         </Swiper>
         <div className={styles.yellowCtaWrapper}>
-          <button className={styles.yellowCtaBtn} type="button">
+          <button
+            className={styles.yellowCtaBtn}
+            type="button"
+            onClick={() => router.push("/registro")}
+          >
             Regístrate aquí para acceder a nuestros cursos
             <span className={styles.arrowIcon}>
               <FaArrowRight color="#ffffffff" />
