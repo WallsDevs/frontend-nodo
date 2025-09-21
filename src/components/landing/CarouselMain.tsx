@@ -7,10 +7,10 @@ import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import styles from "./Carousel.module.css";
+import styles from "./CarouselMain.module.css";
 
 import Image from "next/image";
-import { RedButtonWithIcon } from "./CustomButtons";
+import { RedButtonWithIcon } from "../CustomButtons";
 
 export default function Carousel() {
   const slides = [
@@ -45,6 +45,7 @@ export default function Carousel() {
         pagination={true}
         mousewheel={true}
         keyboard={true}
+        loop={true}
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         className={styles.mySwiper}
       >

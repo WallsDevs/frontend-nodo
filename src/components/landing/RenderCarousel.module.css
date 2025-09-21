@@ -7,10 +7,7 @@
   min-height: 420px;
   background: #fff;
   border-radius: 2.5rem;
-  padding: 2.5rem 2rem;
   position: relative;
-  margin-top: 60px;
-  margin-bottom: 60px;
 }
 .left3d {
   flex: 1 1 420px;
@@ -32,6 +29,7 @@
 }
 .btn360 {
   margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
   background: #fff;
   border: 1.5px solid #bbb;
   border-radius: 1.5rem;

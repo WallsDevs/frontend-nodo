@@ -15,12 +15,14 @@ Este archivo documenta el enfoque frontend del proyecto LMS para Nodo Conceptual
 
 ### Rutas públicas recomendadas (App Router)
 
-- `/` — Landing (one-page con secciones ancla): `src/app/landing/page.tsx` o `src/app/page.tsx` + subcomponentes en `src/app/landing/components/`.
-- `/registro` — Registro: `src/app/registro/page.tsx` (POST a `/api/auth/register` del backend).
-- `/login` — Login: `src/app/login/page.tsx` (POST a `/api/auth/login`).
-- `/cursos` — Listado público de cursos (`SELECT WHERE activo = TRUE`): `src/app/cursos/page.tsx`.
-- `/cursos/[slug]` — Detalle público del curso: `src/app/cursos/[slug]/page.tsx`.
-- `/portafolio` — Portafolio de proyectos: `src/app/portafolio/page.tsx`.
+**Ahora todas las rutas públicas están bajo la carpeta especial `(public)` y comparten un layout general en `src/app/(public)/layout.tsx`.**
+
+- `/` — Landing (one-page con secciones ancla): `src/app/(public)/landing/page.tsx` o `src/app/(public)/page.tsx` + subcomponentes en `src/app/landing/components/`.
+- `/registro` — Registro: `src/app/(public)/registro/page.tsx` (POST a `/api/auth/register` del backend).
+- `/login` — Login: `src/app/(public)/login/page.tsx` (POST a `/api/auth/login`).
+- `/cursos` — Listado público de cursos (`SELECT WHERE activo = TRUE`): `src/app/(public)/cursos/page.tsx`.
+- `/cursos/[slug]` — Detalle público del curso: `src/app/(public)/cursos/[slug]/page.tsx`.
+- `/portafolio` — Portafolio de proyectos: `src/app/(public)/portafolio/page.tsx`.
 
 ### Rutas privadas (clientes y admin)
 
@@ -90,8 +92,10 @@ Para que el cliente tenga el curso "de por vida en su perfil", necesitas una for
 
 ### Estructura de carpetas propuesta
 
-- `src/app/` (rutas App Router)
-  - `landing/`, `registro/`, `login/`, `cursos/`, `portafolio/`, `dashboard/` (admin y cliente)
+`src/app/` (rutas App Router)
+
+- `(public)/` — rutas públicas (landing, registro, login, cursos, portafolio)
+- `dashboard/` (admin y cliente)
 - `src/components/` — componentes UI reutilizables (Button, Card, Form, Nav, Layouts)
 - `src/lib/` — helpers (fetch wrapper, client API, auth helpers, stripe helper)
 - `src/services/` — SDK/clients para el backend (api clients que usan `API_URL`)
@@ -103,3 +107,5 @@ Para que el cliente tenga el curso "de por vida en su perfil", necesitas una for
 - Considerar SWR o React Query para caché, revalidación y manejo de estados (recomiendo React Query para flujos de compra y datos mutables).
 
 MUY IMPORTANTE: usa siempre las mejores practicas de desarrollo, analizar en profundidad cada requerimiento y sugerir la mejor solución posible, no te limites a lo básico o a lo que ya conoces, investiga y aprende nuevas técnicas, patrones y librerías que puedan mejorar la calidad del código y la experiencia del usuario. tambien siempre pensar en el responsive design y la accesibilidad (a11y) en cada componente y página que generes. no hacer codigo innecesario o redundante, siempre optimizar y limpiar el código que generes.
+
+MUCHO MAS IMPORTANTE AUN LIMITATE A HACER LO QUE TE PIDO, NO SUGIERAS NADA QUE NO TE HAYA PEDIDO, SIEMPRE PREGUNTA ANTES SI TIENES DUDAS, NO ASUMAS NADA, NO HAGAS NADA EXTRA, SOLO HAZ LO QUE TE DIGO.

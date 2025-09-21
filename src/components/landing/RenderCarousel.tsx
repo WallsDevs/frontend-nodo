@@ -1,4 +1,5 @@
 "use client";
+import { useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stage, useGLTF } from "@react-three/drei";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,10 +8,20 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import styles from "./RenderCarousel.module.css";
+import { useFrame } from "@react-three/fiber";
+import * as THREE from "three";
 
 function HouseModel({ model }: { model: "house1" | "house2" }) {
   const { scene } = useGLTF(model === "house1" ? "/House1.glb" : "/House2.glb");
-  return <primitive object={scene} scale={1.2} />;
+  const ref = useRef<THREE.Group>(null);
+
+  useFrame(() => {
+    if (ref.current) {
+      ref.current.rotation.y += 0.003; // Ajusta la velocidad aquí
+    }
+  });
+
+  return <primitive ref={ref} object={scene} scale={1.2} />;
 }
 
 const slides = [

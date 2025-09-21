@@ -21,16 +21,13 @@
 }
 .sectionTitle.right {
   flex-direction: row-reverse;
-  text-align: right;
 }
 .textBlock {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
-.sectionTitle.right .textBlock {
-  flex-direction: row-reverse;
-}
+
 .redText {
   color: #ab2731;
   font-weight: 400;

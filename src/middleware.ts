@@ -80,7 +80,7 @@ export function middleware(req: NextRequest) {
         return NextResponse.redirect(new URL("/dashboard", req.url));
       }
       const roleName = typeof role === "string" ? role : role?.name;
-      if (roleName !== "admin" && roleName !== "Administrador") {
+      if (roleName !== "admin") {
         return NextResponse.redirect(new URL("/dashboard", req.url));
       }
     }

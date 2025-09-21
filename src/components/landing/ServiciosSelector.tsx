@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./ServiciosSelector.module.css";
 import Image from "next/image";
 import { ArrowRightOutlined } from "@ant-design/icons";
@@ -33,6 +33,15 @@ const servicios = [
 
 export default function ServiciosSelector() {
   const [selected, setSelected] = useState(servicios[0]);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSelected((prev) => {
+        const idx = servicios.findIndex((s) => s.key === prev.key);
+        return servicios[(idx + 1) % servicios.length];
+      });
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className={styles.container}>

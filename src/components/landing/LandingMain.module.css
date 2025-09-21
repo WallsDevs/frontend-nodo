@@ -1,4 +1,8 @@
-.cardServicios {
+.quienesSomosRight {
+  display: flex;
+  justify-content: flex-end;
+}
+.backgroundWhite {
   border-radius: 6rem;
   background: #fff;
   box-shadow:
